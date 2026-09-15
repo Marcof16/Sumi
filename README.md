@@ -1,5 +1,7 @@
 # SUMI
 
+[![CI](https://github.com/Marcof16/Sumi/actions/workflows/ci.yml/badge.svg)](https://github.com/Marcof16/Sumi/actions/workflows/ci.yml)
+
 Aplicación de escritorio para organizar y escribir novelas. SUMI se encuentra en una
 fase inicial de desarrollo.
 
@@ -31,6 +33,14 @@ narrativo y el asistente todavía no están conectados a Markdown ni a OpenCode.
 
 Instala dependencias con `pnpm install`.
 
+Para clonar el proyecto:
+
+```text
+git clone https://github.com/Marcof16/Sumi.git
+cd Sumi
+pnpm install --frozen-lockfile
+```
+
 - `pnpm dev`: servidor web de Vite.
 - `pnpm tauri:dev`: ejecuta SUMI como aplicación Tauri.
 - `pnpm lint`: comprueba ESLint.
@@ -57,3 +67,8 @@ pnpm build
 ```
 
 La compilación del instalador de escritorio puede requerir WiX en Windows.
+
+## Contribuir
+
+Consulta [CONTRIBUTING.md](CONTRIBUTING.md) para preparar el entorno y validar
+cambios. El proyecto está publicado bajo la licencia [MIT](LICENSE).
