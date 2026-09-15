@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-sumi-bg: var(--sumi-bg);
+  --color-sumi-surface: var(--sumi-surface);
+  --color-sumi-surface-muted: var(--sumi-surface-muted);
+  --color-sumi-surface-raised: var(--sumi-surface-raised);
+  --color-sumi-border: var(--sumi-border);
+  --color-sumi-border-strong: var(--sumi-border-strong);
+  --color-sumi-text: var(--sumi-text);
+  --color-sumi-text-muted: var(--sumi-text-muted);
+  --color-sumi-text-soft: var(--sumi-text-soft);
+  --color-sumi-primary: var(--sumi-primary);
+  --color-sumi-primary-hover: var(--sumi-primary-hover);
+  --color-sumi-primary-foreground: var(--sumi-primary-foreground);
+  --color-sumi-accent: var(--sumi-accent);
+  --color-sumi-accent-soft: var(--sumi-accent-soft);
+}
+
+:root {
+  --sumi-bg: #f5efe5;
+  --sumi-surface: #fffaf1;
+  --sumi-surface-muted: #e7ddcf;
+  --sumi-surface-raised: #fffdf8;
+  --sumi-border: #c8bba8;
+  --sumi-border-strong: #a99883;
+  --sumi-text: #352d27;
+  --sumi-text-muted: #62584f;
+  --sumi-text-soft: #817469;
+  --sumi-primary: #5d4c3d;
+  --sumi-primary-hover: #493a2f;
+  --sumi-primary-foreground: #fffaf2;
+  --sumi-accent: #a26f52;
+  --sumi-accent-soft: #f1dfd2;
+  --sumi-scrollbar: var(--sumi-border-strong);
+  --sumi-scrollbar-hover: var(--sumi-text-soft);
+  --sumi-accent-ideas: #b47752;
+  --sumi-accent-characters: #8d789e;
+  --sumi-accent-world: #668b7c;
+  --sumi-accent-magic: #9472a6;
+  --sumi-accent-timeline: #6f88a2;
+  --sumi-accent-plot: #a17763;
+  --sumi-accent-manuscript: #9a8056;
+  --sumi-accent-review: #6f9086;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: var(--sumi-text);
+  background: var(--sumi-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-theme="night"] {
+  --sumi-bg: #1d1c1b;
+  --sumi-surface: #282523;
+  --sumi-surface-muted: #36312d;
+  --sumi-surface-raised: #302c29;
+  --sumi-border: #554e48;
+  --sumi-border-strong: #6c6259;
+  --sumi-text: #eee8df;
+  --sumi-text-muted: #c0b6aa;
+  --sumi-text-soft: #9d9185;
+  --sumi-primary: #c6a989;
+  --sumi-primary-hover: #d5b99c;
+  --sumi-primary-foreground: #241e19;
+  --sumi-accent: #c89a74;
+  --sumi-accent-soft: #433329;
+  --sumi-accent-ideas: #c79670;
+  --sumi-accent-characters: #af9ac1;
+  --sumi-accent-world: #82aa9a;
+  --sumi-accent-magic: #b79bc7;
+  --sumi-accent-timeline: #91aac3;
+  --sumi-accent-plot: #c59a85;
+  --sumi-accent-manuscript: #c4a97c;
+  --sumi-accent-review: #91b3a5;
+}
+
+[data-theme="forest"] {
+  --sumi-bg: #17221f;
+  --sumi-surface: #20302b;
+  --sumi-surface-muted: #2d4038;
+  --sumi-surface-raised: #263830;
+  --sumi-border: #4c655a;
+  --sumi-border-strong: #638074;
+  --sumi-text: #e6eee7;
+  --sumi-text-muted: #b7c7bc;
+  --sumi-text-soft: #94a99c;
+  --sumi-primary: #a8c3a6;
+  --sumi-primary-hover: #c0d5bc;
+  --sumi-primary-foreground: #1b2823;
+  --sumi-accent: #a8c3a6;
+  --sumi-accent-soft: #2d463c;
+  --sumi-accent-ideas: #c4a87c;
+  --sumi-accent-characters: #a995bd;
+  --sumi-accent-world: #87b6a0;
+  --sumi-accent-magic: #b59acb;
+  --sumi-accent-timeline: #8caabd;
+  --sumi-accent-plot: #c19c86;
+  --sumi-accent-manuscript: #b7ba82;
+  --sumi-accent-review: #8bb9a5;
+}
+
+[data-theme="plum"] {
+  --sumi-bg: #211a23;
+  --sumi-surface: #302631;
+  --sumi-surface-muted: #3e3041;
+  --sumi-surface-raised: #382c39;
+  --sumi-border: #604b61;
+  --sumi-border-strong: #795d79;
+  --sumi-text: #f0e8ef;
+  --sumi-text-muted: #cbbdca;
+  --sumi-text-soft: #a58fa3;
+  --sumi-primary: #d0a9c3;
+  --sumi-primary-hover: #e0bdd3;
+  --sumi-primary-foreground: #2a1c28;
+  --sumi-accent: #d0a0bd;
+  --sumi-accent-soft: #493143;
+  --sumi-accent-ideas: #c99878;
+  --sumi-accent-characters: #c09bc8;
+  --sumi-accent-world: #8eaf9f;
+  --sumi-accent-magic: #d0a0ca;
+  --sumi-accent-timeline: #9fa9c9;
+  --sumi-accent-plot: #d09a91;
+  --sumi-accent-manuscript: #c4a47e;
+  --sumi-accent-review: #91b5aa;
+}
+
+[data-section="ideas"] { --section-accent: var(--sumi-accent-ideas); }
+[data-section="characters"] { --section-accent: var(--sumi-accent-characters); }
+[data-section="world"] { --section-accent: var(--sumi-accent-world); }
+[data-section="magic"] { --section-accent: var(--sumi-accent-magic); }
+[data-section="timeline"] { --section-accent: var(--sumi-accent-timeline); }
+[data-section="plot"] { --section-accent: var(--sumi-accent-plot); }
+[data-section="manuscript"] { --section-accent: var(--sumi-accent-manuscript); }
+[data-section="review"] { --section-accent: var(--sumi-accent-review); }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--sumi-bg);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.sumi-scrollbar {
+  scrollbar-color: var(--sumi-scrollbar) transparent;
+  scrollbar-width: thin;
+}
+
+.sumi-scrollbar::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.sumi-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sumi-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--sumi-scrollbar);
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 999px;
+}
+
+.sumi-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--sumi-scrollbar-hover);
+}

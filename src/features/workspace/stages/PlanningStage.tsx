@@ -1,0 +1,15 @@
+import { ClipboardList, Plus, Trash2 } from "lucide-react";
+import type { WorkspaceBeat, WorkspaceScene } from "@/features/workspace/workspaceTypes";
+import { hasContent } from "@/features/workspace/workspaceUtils";
+import { StageFrame } from "@/features/workspace/stages/StageFrame";
+
+type PlanningStageProps = { scene: WorkspaceScene; onAddBeat: () => void; onUpdateBeat: (beatId: string, text: string) => void; onDeleteBeat: (beatId: string) => void };
+
+export function PlanningStage({ scene, onAddBeat, onUpdateBeat, onDeleteBeat }: PlanningStageProps) {
+  const beats = scene.planning.beats;
+  return <StageFrame title="Ordenar un poco la escena" description="Si te ayuda, anota algunos momentos importantes. También puedes escribir sin plan y volver aquí después."><details className="mb-6 border-b border-sumi-border pb-4"><summary className="cursor-pointer text-sm font-medium text-sumi-text">Idea de partida</summary><p className="mt-3 text-sm leading-relaxed text-sumi-text-muted">{hasContent(scene.idea.goal) ? scene.idea.goal : "Todavía no hay una idea definida. Puedes dejarla abierta."}</p></details>{beats.length === 0 ? <div className="rounded-xl border border-dashed border-sumi-border px-5 py-10 text-center"><ClipboardList className="mx-auto size-5 text-sumi-text-soft" aria-hidden="true" /><p className="mt-3 text-sm text-sumi-text-muted">No hay momentos anotados todavía.</p><p className="mt-1 text-xs text-sumi-text-soft">Una escena también puede descubrirse mientras la escribes.</p></div> : <div className="space-y-3">{beats.map((beat, index) => <BeatRow key={beat.id} beat={beat} index={index} onUpdate={onUpdateBeat} onDelete={onDeleteBeat} />)}</div>}<button type="button" aria-label="Añadir paso" onClick={onAddBeat} className="mt-5 inline-flex items-center gap-2 rounded-lg border border-sumi-border px-3 py-2 text-xs font-semibold text-sumi-text-muted hover:bg-sumi-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sumi-accent"><Plus className="size-3.5" aria-hidden="true" />Añadir momento</button></StageFrame>;
+}
+
+function BeatRow({ beat, index, onUpdate, onDelete }: { beat: WorkspaceBeat; index: number; onUpdate: (beatId: string, text: string) => void; onDelete: (beatId: string) => void }) {
+  return <div className="flex items-center gap-2"><span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sumi-accent-soft text-xs text-sumi-text">{index + 1}</span><input value={beat.text} onChange={(event) => onUpdate(beat.id, event.target.value)} aria-label={`Paso ${index + 1}`} placeholder="Un momento importante..." className="min-w-0 flex-1 border-b border-sumi-border bg-transparent px-2 py-2 text-sm text-sumi-text outline-none focus:border-sumi-accent" /><button type="button" aria-label={`Eliminar paso ${index + 1}`} onClick={() => onDelete(beat.id)} className="rounded-md p-2 text-sumi-text-soft hover:bg-sumi-surface-muted hover:text-sumi-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sumi-accent"><Trash2 className="size-4" aria-hidden="true" /></button></div>;
+}

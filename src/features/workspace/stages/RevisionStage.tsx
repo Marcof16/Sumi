@@ -1,0 +1,11 @@
+import { Textarea } from "@/components/ui/textarea";
+import { DraftReadOnly } from "@/features/workspace/components/WorkspaceSheets";
+import type { WorkspaceScene } from "@/features/workspace/workspaceTypes";
+import { StageFrame } from "@/features/workspace/stages/StageFrame";
+
+const reviewItems = ["Claridad", "Continuidad", "Diálogo", "Ritmo", "Ortografía"];
+type RevisionStageProps = { scene: WorkspaceScene; onToggleCheck: (item: string) => void; onNotesChange: (notes: string) => void; onViewPlan: () => void };
+
+export function RevisionStage({ scene, onToggleCheck, onNotesChange, onViewPlan }: RevisionStageProps) {
+  return <StageFrame title="Leer con otros ojos" description="Una segunda mirada puede ayudarte a escuchar mejor la escena. Elige solo lo que te resulte útil."><div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_280px]"><div className="rounded-xl bg-sumi-surface-raised px-6 py-7 sm:px-8"><div className="flex items-center justify-between"><h2 className="text-sm font-semibold text-sumi-text">Tu borrador</h2><button type="button" onClick={onViewPlan} className="text-xs font-semibold text-sumi-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sumi-accent">Ver lo que has ordenado</button></div><DraftReadOnly content={scene.draft.content} /></div><div className="border-t border-sumi-border pt-5 lg:border-l lg:border-t-0 lg:pl-6"><h2 className="text-sm font-semibold text-sumi-text">Aspectos que puedes mirar</h2><div className="mt-4 space-y-1">{reviewItems.map((item) => <label key={item} className="flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm text-sumi-text hover:bg-sumi-surface-muted"><input type="checkbox" checked={Boolean(scene.revision.checks[item])} onChange={() => onToggleCheck(item)} className="size-4 accent-[var(--sumi-accent)]" />{item}</label>)}</div><label className="mt-5 block text-sm font-medium text-sumi-text" htmlFor="review-notes">Notas para volver después</label><Textarea id="review-notes" value={scene.revision.notes} onChange={(event) => onNotesChange(event.target.value)} className="mt-2 min-h-28" placeholder="Algo que quieras probar, conservar o mirar con calma..." /></div></div></StageFrame>;
+}

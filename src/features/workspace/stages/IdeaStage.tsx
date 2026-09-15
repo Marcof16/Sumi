@@ -1,0 +1,9 @@
+import { Textarea } from "@/components/ui/textarea";
+import type { WorkspaceScene } from "@/features/workspace/workspaceTypes";
+import { StageFrame } from "@/features/workspace/stages/StageFrame";
+
+type IdeaStageProps = { scene: WorkspaceScene; onUpdateIdea: (update: Partial<WorkspaceScene["idea"]>) => void };
+
+export function IdeaStage({ scene, onUpdateIdea }: IdeaStageProps) {
+  return <StageFrame title="Cuéntame qué tienes en mente" description="Escribe lo que tengas. No hace falta explicarlo perfectamente ni resolverlo todo ahora."><label className="block text-sm font-medium text-sumi-text" htmlFor="scene-goal">¿Qué quieres contar en esta escena?</label><Textarea id="scene-goal" value={scene.idea.goal} onChange={(event) => onUpdateIdea({ goal: event.target.value })} className="mt-2 min-h-32" placeholder="Una imagen, un cambio, un conflicto... lo que aparezca primero." /><label className="mt-7 block text-sm font-medium text-sumi-text" htmlFor="scene-notes">Lo que no quieres perder</label><Textarea id="scene-notes" value={scene.idea.notes} onChange={(event) => onUpdateIdea({ notes: event.target.value })} className="mt-2 min-h-24" placeholder="Notas, detalles o preguntas para volver después..." /><div className="mt-8 border-t border-sumi-border pt-5"><p className="text-xs font-semibold uppercase tracking-[0.14em] text-sumi-text-soft">Contexto opcional</p><p className="mt-1 text-xs text-sumi-text-muted">Puedes añadirlo cuando lo necesites. Nada de esto es obligatorio.</p><div className="mt-4 grid gap-3 sm:grid-cols-3">{["POV", "Personajes", "Lugar"].map((item) => <div key={item} className="rounded-lg bg-sumi-surface-muted/50 px-3 py-3"><span className="block text-xs font-medium text-sumi-text">{item}</span><span className="mt-1 block text-xs text-sumi-text-soft">Todavía no definido</span></div>)}</div></div></StageFrame>;
+}
