@@ -14,7 +14,7 @@ Conectar las secciones de SUMI con la estructura Markdown del proyecto abierto, 
 - Añadir lectura de índices Markdown sin introducir una base de datos.
 - Mantener y ampliar la Biblioteca local sin implementar todavía importación externa, favoritos o nube.
 - Completar/verificar el bundle instalable de `pnpm tauri:build` cuando WiX esté disponible.
-- Añadir el remoto de GitHub cuando el usuario indique el repositorio destino.
+- Mantener la rama `main` protegida y revisar las ejecuciones de CI después de cada pull request.
 - Definir el modelo narrativo Markdown y las primeras funciones de producto.
 - Revisar manualmente en `tauri:dev` el nuevo inicio del Área de trabajo y el editor en ventanas estrechas antes de conectar persistencia.
 

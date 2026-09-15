@@ -62,7 +62,7 @@ Herramientas de desarrollo: TypeScript, Vite, ESLint, Prettier, Vitest, jsdom y 
 
 ## Trabajo incompleto
 
-- El repositorio Git local se inicializó el 2026-09-14 y contiene el commit inicial `e9f06ac`; no hay remoto configurado todavía.
+- El repositorio Git local se inicializó el 2026-09-14 y está publicado en `https://github.com/Marcof16/Sumi.git` sobre la rama `main`.
 - El empaquetado instalable de `pnpm tauri:build` todavía no está confirmado porque la fase WiX no terminó.
 - Las secciones narrativas siguen siendo placeholders; todavía no leen ni editan sus archivos Markdown.
 - La prueba manual de clics dentro de la ventana Tauri no pudo automatizarse desde esta sesión; el arranque nativo sí fue verificado.

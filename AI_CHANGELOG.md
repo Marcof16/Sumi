@@ -9,6 +9,7 @@
 - Actualizado `README.md` con estado, requisitos, estructura y flujo de verificación.
 - Añadida CI de frontend en `.github/workflows/ci.yml` para pushes y pull requests.
 - Inicializado el repositorio Git local sin añadir artefactos generados ni archivos de entorno.
+- Publicado el proyecto en `https://github.com/Marcof16/Sumi.git` sobre la rama `main`.
 
 ### Verificación
 
