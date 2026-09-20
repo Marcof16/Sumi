@@ -1,5 +1,14 @@
 # Estado Actual
 
+## Preview web Cloudflare — 2026-09-20
+
+- Wrangler `4.135.0` quedó instalado como dependencia de desarrollo local.
+- `wrangler.jsonc` sirve `dist/` mediante Workers Static Assets con fallback SPA.
+- La allowlist de pnpm 11 autoriza únicamente los scripts existentes de `esbuild` y `workerd`; la instalación congelada ejecuta `workerd` sin `ERR_PNPM_IGNORED_BUILDS`.
+- Se añadieron `build:web`, `preview:cloudflare` y `deploy:cloudflare` sin modificar `build`, `dev` ni los comandos Tauri.
+- No se modificó `vite.config.ts`, `src-tauri` ni la detección de entorno Tauri. Las funciones nativas ya degradan de forma segura en navegador.
+- Verificación: `pnpm install --frozen-lockfile`, `pnpm run build:web`, `pnpm run build`, `pnpm test` (37 pruebas), `pnpm lint` y `pnpm exec wrangler deploy --dry-run` correctos.
+
 ## Estado actual
 
 SUMI administra una biblioteca local en `Documentos/SUMI/Novelas`, donde crea y descubre proyectos de novela basados en Markdown. Puede mantener un único proyecto abierto y volver a la Biblioteca sin borrar archivos. La información narrativa vive en Markdown; `sumi.json` solo identifica el proyecto y contiene metadatos mínimos.

@@ -1,5 +1,10 @@
 # Próximos Pasos
 
+## Preview web
+
+- La configuración local de Cloudflare está lista para revisión: ejecutar `pnpm run build:web` y `pnpm run preview:cloudflare` cuando se quiera probarla.
+- Antes de subir a GitHub, revisar el nombre `sumi` y la autenticación segura del entorno Cloudflare; no hay tokens versionados.
+
 ## Próxima tarea recomendada
 
 Conectar las secciones de SUMI con la estructura Markdown del proyecto abierto, empezando por Ideas/Inbox y Personajes. Inicio mantiene sus estadísticas como placeholders hasta esa conexión.

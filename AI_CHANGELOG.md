@@ -1,5 +1,20 @@
 # Historial de Cambios de IA
 
+## 2026-09-20 — Preparación de preview web en Cloudflare
+
+### Realizado
+
+- Añadido Wrangler `4.135.0` como dependencia de desarrollo y actualizado `pnpm-lock.yaml`.
+- Creado `wrangler.jsonc` para Workers Static Assets con `dist/` y fallback SPA.
+- Persistida en `pnpm-workspace.yaml` la autorización exclusiva del script de instalación de `workerd`.
+- Añadidos los scripts `build:web`, `preview:cloudflare` y `deploy:cloudflare` sin alterar el flujo Tauri.
+- Añadidos `.wrangler/`, `.dev.vars` y `.dev.vars.*` a `.gitignore`.
+
+### Verificación
+
+- `pnpm install --frozen-lockfile`, `pnpm run build:web`, `pnpm run build`, `pnpm test` (37 pruebas), `pnpm lint` y `pnpm exec wrangler deploy --dry-run`: correctos.
+- No se ejecutó un deploy real.
+
 ## 2026-09-14 — Preparación para GitHub
 
 ### Realizado
